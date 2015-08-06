@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Сентасе</title>
+    <style>
+    #wrapper {
+        width: 1200px;
+        height: 600px;
+        margin: 0 auto;
+        border: 1px solid #000;
+        border-radius: 5px;
+    }
+    #player-one {
+        padding-top: 100px;
+        width: 1100px;
+        height: 200px;
+        margin: 0 auto;
+    }
+    #player-two {
+        padding-top: 150px;
+        width: 1100px;
+        height: 400px;
+        margin: 0 auto;
+    }
+    .player-icon {
+        margin-left: 30%;
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        padding: 5px;
+    }
+    .cards {
+        position: absolute;
+        left: 350px;
+    }
+    .koz {
+        position: absolute;
+        left: 500px;
+    }
+    #current-card-player-one {
+        position: absolute;
+        left: 100px;
+    }
+    #current-card-player-two {
+        position: absolute;
+        left: 200px;
+    }
+    .player-points {
+        margin-left: 5%;
+    }
+    .win {
+        text-align: center;
+    }
+    .card1 {
+        position: absolute;
+        left: 350px;
+    }
+    .card2 {
+        position: absolute;
+        left: 360px;
+    }
+    .card3 {
+        position: absolute;
+        left: 370px;
+    }
+    .card4 {
+        position: absolute;
+        left: 380px;
+    }
+    .card5 {
+        position: absolute;
+        left: 390px;
+    }
+    .card6 {
+        position: absolute;
+        left: 400px;
+    }
+    .card7 {
+        position: absolute;
+        left: 410px;
+    }
+    .card8 {
+        position: absolute;
+        left: 420px;
+    }
+    .card9 {
+        position: absolute;
+        left: 430px;
+    }
+    .card10 {
+        position: absolute;
+        left: 440px;
+    }
+    .card11 {
+        position: absolute;
+        left: 450px;
+    }
+    .twenty-player-one {
+        position: absolute;
+        top: 250px;
+        left: 800px;
+        font-size: 3em;
+        display: none;
+    }
+    .twenty-player-two {
+        position: absolute;
+        top: 410px;
+        left: 800px;
+        font-size: 3em;
+        display: none;
+    }
+    .change-card-player-two {
+        position: absolute;
+        font-size: 1.6em;
+        top: 420px;
+        left: 800px;
+        border: 1px solid #000;
+        padding: 3px;
+        border-radius: 10px;
+        color: darkgreen;
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="player-one">
+            <img id="card-one-player-one" class="img-player-one" src="images/card-back.png">
+            <img id="card-two-player-one" class="img-player-one" src="images/card-back.png">
+            <img id="card-three-player-one" class="img-player-one" src="images/card-back.png">
+            <img id="card-four-player-one" class="img-player-one" src="images/card-back.png">
+            <img id="card-five-player-one" class="img-player-one" src="images/card-back.png">
+            <img id="card-six-player-one" class="img-player-one" src="images/card-back.png">
+            <img src="images/player-icon.png" alt="Player" class="player-icon">
+            <span class="player-points">Точки:
+                <span id="player-one-points">0</span>
+            </span>
+            <span class="twenty-player-one"></span>
+            <span class="twenty-player-two"></span>
+            <span class="change-card-player-two">Замени</span>
+        </div>
+        <div class="cards">
+            <img src="" id="current-card-player-one" />
+            <img src="" id="current-card-player-two" />
+            <div id="cards">
+                <img src="images/card-back.png" id="one-c" class="card1" alt="cards">
+                <img src="images/card-back.png" id="two-c" class="card2" alt="cards">
+                <img src="images/card-back.png" id="three-c" class="card3" alt="cards">
+                <img src="images/card-back.png" id="four-c" class="card4" alt="cards">
+                <img src="images/card-back.png" id="five-c" class="card5" alt="cards">
+                <img src="images/card-back.png" id="six-c" class="card6" alt="cards">
+                <img src="images/card-back.png" id="seven-c" class="card7" alt="cards">
+                <img src="images/card-back.png" id="eight-c" class="card8" alt="cards">
+                <img src="images/card-back.png" id="nine-c" class="card9" alt="cards">
+                <img src="images/card-back.png" id="ten-c" class="card10" alt="cards">
+                <img src="images/card-back.png" id="eleven-c" class="card11" alt="cards">
+                <img src="images/card-back.png" id="koz" class="koz" alt="koz">
+            </div>
+
+        </div>
+        <div id="player-two">
+            <img id="card-one-player-two" class="img-player-two" src="images/card-back.png">
+            <img id="card-two-player-two" class="img-player-two" src="images/card-back.png">
+            <img id="card-three-player-two" class="img-player-two" src="images/card-back.png">
+            <img id="card-four-player-two" class="img-player-two" src="images/card-back.png">
+            <img id="card-five-player-two" class="img-player-two" src="images/card-back.png">
+            <img id="card-six-player-two" class="img-player-two" src="images/card-back.png">
+            <img src="images/player-icon.png" alt="Player" class="player-icon">
+            <span class="player-points">Точки:
+                <span id="player-two-points">0</span>
+            </span>
+        </div>
+    </div>
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script type="text/javascript">
+    var cards = ['./images/9-karo.png', './images/9-pika.png', './images/9-spatiq.png', './images/9-kupa.png', './images/10-karo.png', './images/10-pika.png', './images/10-spatiq.png', './images/10-kupa.png', './images/J-karo.png', './images/J-pika.png', './images/J-spatiq.png', './images/J-kupa.png', './images/Q-karo.png', './images/Q-pika.png', './images/Q-spatiq.png', './images/Q-kupa.png', './images/K-karo.png', './images/K-pika.png', './images/K-spatiq.png', './images/K-kupa.png', './images/A-karo.png', './images/A-pika.png', './images/A-spatiq.png', './images/A-kupa.png'];
+    var cardsNums = ['9ka', '9p', '9s', '9ku', '10ka', '10p', '10s', '10ku', 'Jka', 'Jp', 'Js', 'Jku', 'Qka', 'Qp', 'Qs', 'Qku', 'Kka', 'Kp', 'Ks', 'Kku', 'Aka', 'Ap', 'As ', 'Aku'];
+    var cardBack = './images/card-back.png';
+    var currentCards = [];
+    var $playerOneFirstCard = $('#card-one-player-one');
+    var $playerOneSecondCard = $('#card-two-player-one');
+    var $playerOneThirdCard = $('#card-three-player-one');
+    var $playerOneFourthCard = $('#card-four-player-one');
+    var $playerOneFifthCard = $('#card-five-player-one');
+    var $playerOneSixthCard = $('#card-six-player-one');
+
+    var $playerTwoFirstCard = $('#card-one-player-two');
+    var $playerTwoSecondCard = $('#card-two-player-two');
+    var $playerTwoThirdCard = $('#card-three-player-two');
+    var $playerTwoFourthCard = $('#card-four-player-two');
+    var $playerTwoFifthCard = $('#card-five-player-two');
+    var $playerTwoSixthCard = $('#card-six-player-two');
+
+    var $currentCardsPlayerOne = $('#current-card-player-one');
+    var $currentCardsPlayerTwo = $('#current-card-player-two');
+
+    var playerOnePushedCard = '';
+    var playerTwoPushedCard = '';
+
+    var cardsInHandPlayerOne = [];
+    var cardsInHandPlayerTwo = [];
+
+    var cardsWinner = 12;
+    var cardsLoser = 13;
+
+    TIMEOUT_SUCCESS_RESULT = 1500;
+
+    var isThirteen = true;
+    var isStepTwo = false;
+
+    var isLocked = false;
+
+    var isOtherPlayer = false;
+
+    var $oneCard = $('#one-c');
+    var $twoCard = $('#two-c');
+    var $threeCard = $('#three-c');
+    var $fourCard = $('#four-c');
+    var $fiveCard = $('#five-c');
+    var $sixCard = $('#six-c');
+    var $sevenCard = $('#seven-c');
+    var $eightCard = $('#eight-c');
+    var $nineCard = $('#nine-c');
+    var $tenCard = $('#ten-c');
+    var $elevenCard = $('#elven-c');
+    var playerOneCurrentCards = [];
+    var playerTwoCurrentCards = [];
+
+    var $trump = $('#koz');
+    var $trumpCard = [];
+
+    var $playerOnePointsSpan = $('#player-one-points');
+    var $playerTwoPointsSpan = $('#player-two-points');
+
+    var playerOnePoints = 0;
+    var playerTwoPoints = 0;
+
+    var playerOneGetCards = [];
+    var playerTwoGetCards = [];
+
+    var uniqueRandoms = [];
+    var numRandoms = 24;
+
+    var playerOne = false;
+    var playerTwo = true;
+
+    var afterFirstRound = false;
+
+    // function checkIfCardExist(playerId, card) {
+    //     var arrPlayerOneCards = [];
+    //     var arrPlayerTwoCards = [];
+    //     var cardStyle = checkStyle(card);
+    //     var murge = false;
+    //     if (playerId === 1) {
+    //         $('.img-player-one').each(function() {
+    //             if (cardStyle != checkStyle($(this).attr('data-card'))) {
+    //                 $(this).attr('disabled', 'disabled');
+    //             }
+    //         })
+    //     } else if (playerId === 2) {
+    //         $('.img-player-two').each(function() {
+    //             if (cardStyle === checkStyle($(this).attr('data-card'))) {
+    //                 murge = true;
+    //             }
+    //         })
+    //     }
+    //     return murge;
+    // }
+
+    function checkNineCard(playerId) {
+        if (afterFirstRound == true && isOtherPlayer == false) {
+            $('.img-player-two').each(function() {
+                if (checkValue($(this).attr('data-card')) === 1) {
+                    var $self = $(this);
+                    if (checkStyle($(this).attr('data-card')) == checkStyle($trumpCard[0])) {
+                        $('.change-card-player-two').show();
+                        $('.change-card-player-two').on('click', function() {
+                            var kozCard = $('#koz').attr('data-card');
+                            var kozSrc = $('#koz').attr('src');
+
+                            var mineDataCard = $self.attr('data-card');
+                            var mineSrc = $self.attr('src');
+
+                            $self.attr('src', kozSrc);
+                            $self.attr('data-card', kozCard);
+
+                            $('#koz').attr('data-card', mineDataCard);
+                            $('#koz').attr('src', mineSrc);
+                            $('.change-card-player-two').hide();
+                        })
+                    }
+                }
+            })
+        }
+
+    }
+
+    function checkForTwenty(playerId, card) {
+        if (playerId === 1 && afterFirstRound == true && isOtherPlayer == false) {
+            if ($('#current-card-player-two').attr('src') === undefined) {
+                if (checkValue(card.attr('data-card')) === 3) {
+                    var queenStyle = checkStyle(card.attr('data-card'));
+                    $('.img-player-one').each(function() {
+                        if (checkValue($(this).attr('data-card')) === 4 && checkStyle($(this).attr('data-card')) === queenStyle) {
+                            if (checkStyle($trumpCard[0]) === checkStyle($(this).attr('data-card'))) {
+                                playerOnePoints += 40;
+                                $playerOnePointsSpan.html(playerOnePoints);
+                                $('.twenty-player-one').css('color', 'red');
+                                $('.twenty-player-one').html('40');
+                                $('.twenty-player-one').show();
+                                setTimeout(function() {
+                                    $('.twenty-player-one').hide();
+                                }, 1200)
+                            } else {
+                                playerOnePoints += 20;
+                                $playerOnePointsSpan.html(playerOnePoints);
+                                $('.twenty-player-one').css('color', 'darkgreen');
+                                $('.twenty-player-one').html('20');
+                                $('.twenty-player-one').show();
+                                setTimeout(function() {
+                                    $('.twenty-player-one').hide();
+                                }, 1200)
+                            }
+                        }
+                    });
+                } else if (checkValue(card.attr('data-card')) === 4) {
+                    var kingStyle = checkStyle(card.attr('data-card'));
+                    $('.img-player-one').each(function() {
+                        if (checkValue($(this).attr('data-card')) === 3 && checkStyle($(this).attr('data-card')) === kingStyle) {
+                            if (checkStyle($trumpCard[0]) === checkStyle($(this).attr('data-card'))) {
+                                playerOnePoints += 40;
+                                $playerOnePointsSpan.html(playerOnePoints);
+                                $('.twenty-player-one').css('color', 'red');
+                                $('.twenty-player-one').html('40');
+                                $('.twenty-player-one').show();
+                                setTimeout(function() {
+                                    $('.twenty-player-one').hide();
+                                }, 1200)
+                            } else {
+                                playerOnePoints += 20;
+                                $playerOnePointsSpan.html(playerOnePoints);
+                                $('.twenty-player-one').css('color', 'darkgreen');
+                                $('.twenty-player-one').html('20');
+                                $('.twenty-player-one').show();
+                                setTimeout(function() {
+                                    $('.twenty-player-one').hide();
+                                }, 1200)
+                            }
+                        }
+                    });
+                }
+            }
+
+        } else if (playerId === 2 && afterFirstRound == true && isOtherPlayer == false) {
+            if (checkValue(card.attr('data-card')) === 3) {
+                var queenStyle = checkStyle(card.attr('data-card'));
+                $('.img-player-two').each(function() {
+                    if (checkValue($(this).attr('data-card')) === 4 && checkStyle($(this).attr('data-card')) === queenStyle) {
+                        if (checkStyle($trumpCard[0]) === checkStyle($(this).attr('data-card'))) {
+                            playerTwoPoints += 40;
+                            $playerTwoPointsSpan.html(playerTwoPoints);
+                            $('.twenty-player-two').css('color', 'red');
+                            $('.twenty-player-two').html('40');
+                            $('.twenty-player-two').show();
+                            setTimeout(function() {
+                                $('.twenty-player-two').hide();
+                            }, 1200)
+                        } else {
+                            playerTwoPoints += 20;
+                            $playerTwoPointsSpan.html(playerTwoPoints);
+                            $('.twenty-player-two').css('color', 'darkgreen');
+                            $('.twenty-player-two').html('20');
+                            $('.twenty-player-two').show();
+                            setTimeout(function() {
+                                $('.twenty-player-two').hide();
+                            }, 1200)
+                        }
+                    }
+                });
+            } else if (checkValue(card.attr('data-card')) === 4) {
+                var kingStyle = checkStyle(card.attr('data-card'));
+                $('.img-player-two').each(function() {
+                    if (checkValue($(this).attr('data-card')) === 3 && checkStyle($(this).attr('data-card')) === kingStyle) {
+                        if (checkStyle($trumpCard[0]) === checkStyle($(this).attr('data-card'))) {
+                            playerTwoPoints += 40;
+                            $playerTwoPointsSpan.html(playerTwoPoints);
+                            $('.twenty-player-two').css('color', 'red');
+                            $('.twenty-player-two').html('40');
+                            $('.twenty-player-two').show();
+                            setTimeout(function() {
+                                $('.twenty-player-two').hide();
+                            }, 1200)
+                        } else {
+                            playerTwoPoints += 20;
+                            $playerTwoPointsSpan.html(playerTwoPoints);
+                            $('.twenty-player-two').css('color', 'darkgreen');
+                            $('.twenty-player-two').html('20');
+                            $('.twenty-player-two').show();
+                            setTimeout(function() {
+                                $('.twenty-player-two').hide();
+                            }, 1200)
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    function pushPlayerOneCard() {
+        //Card should be between 1-6
+        if (isStepTwo === true) {
+            setTimeout(function() {
+                var cardStyle = checkStyle($('#current-card-player-two').attr('data-card'));
+                var found = false;
+                $('.img-player-one').each(function() {
+                    if (checkStyle($(this).attr('data-card')) === cardStyle) {
+                        found = true;
+                        $(this).click();
+                    }
+                }).promise().done(function() {
+                    if (found === false) {
+                        var randomNumCard = Math.floor(Math.random() * 5 + 1);
+                        console.log(randomNumCard);
+                        switch (randomNumCard) {
+                            case 1:
+                                $playerOneFirstCard.click()
+                                break;
+                            case 2:
+                                $playerOneSecondCard.click()
+                                break;
+                            case 3:
+                                $playerOneThirdCard.click()
+                                break;
+                            case 4:
+                                $playerOneFourthCard.click()
+                                break;
+                            case 5:
+                                $playerOneFifthCard.click()
+                                break;
+                            case 6:
+                                $playerOneSixthCard.click()
+                                break;
+                        }
+                    }
+                });
+            }, 600);
+
+        } else {
+            setTimeout(function() {
+                var randomNumCard = Math.floor(Math.random() * 5 + 1);
+                console.log(randomNumCard);
+                switch (randomNumCard) {
+                    case 1:
+                        $playerOneFirstCard.click()
+                        break;
+                    case 2:
+                        $playerOneSecondCard.click()
+                        break;
+                    case 3:
+                        $playerOneThirdCard.click()
+                        break;
+                    case 4:
+                        $playerOneFourthCard.click()
+                        break;
+                    case 5:
+                        $playerOneFifthCard.click()
+                        break;
+                    case 6:
+                        $playerOneSixthCard.click()
+                        break;
+                }
+            }, 600);
+        }
+
+    }
+
+    $playerOneFirstCard.click(function() {
+        if (isOtherPlayer === true && isStepTwo === true && playerOne === true && (playerOneCurrentCards = []) && isLocked == false) {
+            var cardId = $currentCardsPlayerTwo.attr('data-card');
+            var styleOfCard = checkStyle(cardId);
+            var styleOfCurrentCard = checkStyle($playerOneFirstCard.attr('data-card'));
+            if (styleOfCurrentCard === styleOfCard) {
+                playerOnePushedCard = $playerOneFirstCard.attr('id');
+                $playerOneFirstCard.hide();
+                $playerOneFirstCard.removeAttr('class');
+                playerOneCurrentCards.length = 0;
+                playerOneCurrentCards.push($playerOneFirstCard.attr('data-card'));
+                $currentCardsPlayerOne.attr('src', $playerOneFirstCard.attr('data-src'));
+                $currentCardsPlayerOne.attr('data-card', $playerOneFirstCard.attr('data-card'));
+                playerOne = false;
+                playerTwo = true;
+                checkForTwenty(1, $playerOneFirstCard);
+
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+            } else {
+                var isRepeat = false;
+                $('.img-player-one').each(function() {
+                    if (checkStyle($(this).attr('data-card')) === styleOfCard) {
+                        isRepeat = true;
+                    }
+                }).promise().done(function() {
+                    if (isRepeat === false) {
+                        playerOnePushedCard = $playerOneFirstCard.attr('id');
+                        $playerOneFirstCard.hide();
+                        $playerOneFirstCard.removeAttr('class');
+                        playerOneCurrentCards.length = 0;
+                        playerOneCurrentCards.push($playerOneFirstCard.attr('data-card'));
+                        $currentCardsPlayerOne.attr('src', $playerOneFirstCard.attr('data-src'));
+                        $currentCardsPlayerOne.attr('data-card', $playerOneFirstCard.attr('data-card'));
+                        playerOne = false;
+                        playerTwo = true;
+                        checkForTwenty(1, $playerOneFirstCard);
+
+                        result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                    }
+                })
+
+            }
+        } else {
+            if (playerOne === true && (playerOneCurrentCards = []) && isLocked == false) {
+                playerOnePushedCard = $playerOneFirstCard.attr('id');
+                $playerOneFirstCard.hide();
+                $playerOneFirstCard.removeAttr('class');
+                playerOneCurrentCards.length = 0;
+                playerOneCurrentCards.push($playerOneFirstCard.attr('data-card'));
+                $currentCardsPlayerOne.attr('src', $playerOneFirstCard.attr('data-src'));
+                $currentCardsPlayerOne.attr('data-card', $playerOneFirstCard.attr('data-card'));
+                playerOne = false;
+                playerTwo = true;
+                checkForTwenty(1, $playerOneFirstCard);
+
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+            }
+        }
+
+    })
+    $playerOneSecondCard.click(function() {
+        if (isOtherPlayer === true && isStepTwo === true && playerOne === true && (playerOneCurrentCards = []) && isLocked == false) {
+            var cardId = $currentCardsPlayerTwo.attr('data-card');
+            var styleOfCard = checkStyle(cardId);
+            var styleOfCurrentCard = checkStyle($playerOneSecondCard.attr('data-card'));
+            if (styleOfCurrentCard === styleOfCard) {
+                playerOnePushedCard = $playerOneSecondCard.attr('id');
+                $playerOneSecondCard.hide();
+                $playerOneSecondCard.removeAttr('class');
+                playerOneCurrentCards.length = 0;
+                playerOneCurrentCards.push($playerOneSecondCard.attr('data-card'));
+                $currentCardsPlayerOne.attr('src', $playerOneSecondCard.attr('data-src'));
+                $currentCardsPlayerOne.attr('data-card', $playerOneSecondCard.attr('data-card'));
+                playerOne = false;
+                playerTwo = true;
+                checkForTwenty(1, $playerOneSecondCard);
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+            } else {
+                var isRepeat = false;
+                $('.img-player-one').each(function() {
+                    if (checkStyle($(this).attr('data-card')) === styleOfCard) {
+                        isRepeat = true;
+                    }
+                }).promise().done(function() {
+                    if (isRepeat === false) {
+                        playerOnePushedCard = $playerOneSecondCard.attr('id');
+                        $playerOneSecondCard.hide();
+                        $playerOneSecondCard.removeAttr('class');
+                        playerOneCurrentCards.length = 0;
+                        playerOneCurrentCards.push($playerOneSecondCard.attr('data-card'));
+                        $currentCardsPlayerOne.attr('src', $playerOneSecondCard.attr('data-src'));
+                        $currentCardsPlayerOne.attr('data-card', $playerOneSecondCard.attr('data-card'));
+                        playerOne = false;
+                        playerTwo = true;
+                        checkForTwenty(1, $playerOneSecondCard);
+                        result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                    }
+                })
+            }
+        } else {
+            if (playerOne === true && (playerOneCurrentCards = []) && isLocked == false) {
+                playerOnePushedCard = $playerOneSecondCard.attr('id');
+                $playerOneSecondCard.hide();
+                $playerOneSecondCard.removeAttr('class');
+                playerOneCurrentCards.length = 0;
+                playerOneCurrentCards.push($playerOneSecondCard.attr('data-card'));
+                $currentCardsPlayerOne.attr('src', $playerOneSecondCard.attr('data-src'));
+                $currentCardsPlayerOne.attr('data-card', $playerOneSecondCard.attr('data-card'));
+                playerOne = false;
+                playerTwo = true;
+                checkForTwenty(1, $playerOneSecondCard);
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+            }
+        }
+
+    })
+
+    $playerOneThirdCard.click(function() {
+        if (isOtherPlayer === true && isStepTwo === true && playerOne === true && (playerOneCurrentCards = []) && isLocked == false) {
+            var cardId = $currentCardsPlayerTwo.attr('data-card');
+            var styleOfCard = checkStyle(cardId);
+            var styleOfCurrentCard = checkStyle($playerOneThirdCard.attr('data-card'));
+            if (styleOfCurrentCard === styleOfCard) {
+                playerOnePushedCard = $playerOneThirdCard.attr('id');
+                $playerOneThirdCard.hide();
+                $playerOneThirdCard.removeAttr('class');
+                playerOneCurrentCards.length = 0;
+                playerOneCurrentCards.push($playerOneThirdCard.attr('data-card'));
+                $currentCardsPlayerOne.attr('src', $playerOneThirdCard.attr('data-src'));
+                $currentCardsPlayerOne.attr('data-card', $playerOneThirdCard.attr('data-card'));
+                playerOne = false;
+                playerTwo = true;
+                checkForTwenty(1, $playerOneThirdCard);
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+            } else {
+                var isRepeat = false;
+                $('.img-player-one').each(function() {
+                    if (checkStyle($(this).attr('data-card')) === styleOfCard) {
+                        isRepeat = true;
+                    }
+                }).promise().done(function() {
+                    if (isRepeat === false) {
+                        playerOnePushedCard = $playerOneThirdCard.attr('id');
+                        $playerOneThirdCard.hide();
+                        $playerOneThirdCard.removeAttr('class');
+                        playerOneCurrentCards.length = 0;
+                        playerOneCurrentCards.push($playerOneThirdCard.attr('data-card'));
+                        $currentCardsPlayerOne.attr('src', $playerOneThirdCard.attr('data-src'));
+                        $currentCardsPlayerOne.attr('data-card', $playerOneThirdCard.attr('data-card'));
+                        playerOne = false;
+                        playerTwo = true;
+                        checkForTwenty(1, $playerOneThirdCard);
+                        result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                    }
+                })
+            }
+        } else {
+            if (playerOne === true && (playerOneCurrentCards = []) && isLocked == false) {
+                playerOnePushedCard = $playerOneThirdCard.attr('id');
+                $playerOneThirdCard.hide();
+                $playerOneThirdCard.removeAttr('class');
+                playerOneCurrentCards.length = 0;
+                playerOneCurrentCards.push($playerOneThirdCard.attr('data-card'));
+                $currentCardsPlayerOne.attr('src', $playerOneThirdCard.attr('data-src'));
+                $currentCardsPlayerOne.attr('data-card', $playerOneThirdCard.attr('data-card'));
+                playerOne = false;
+                playerTwo = true;
+                checkForTwenty(1, $playerOneThirdCard);
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+            }
+        }
+
+    })
+    $playerOneFourthCard.click(function() {
+        if (isOtherPlayer === true && isStepTwo === true && playerOne === true && (playerOneCurrentCards = []) && isLocked == false) {
+            var cardId = $currentCardsPlayerTwo.attr('data-card');
+            var styleOfCard = checkStyle(cardId);
+            var styleOfCurrentCard = checkStyle($playerOneFourthCard.attr('data-card'));
+            if (styleOfCurrentCard === styleOfCard) {
+                playerOnePushedCard = $playerOneFourthCard.attr('id');
+                $playerOneFourthCard.hide();
+                $playerOneFourthCard.removeAttr('class');
+                playerOneCurrentCards.length = 0;
+                playerOneCurrentCards.push($playerOneFourthCard.attr('data-card'));
+                $currentCardsPlayerOne.attr('src', $playerOneFourthCard.attr('data-src'));
+                $currentCardsPlayerOne.attr('data-card', $playerOneFourthCard.attr('data-card'));
+                playerOne = false;
+                playerTwo = true;
+                checkForTwenty(1, $playerOneFourthCard);
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+            } else {
+
+                var isRepeat = false;
+                $('.img-player-one').each(function() {
+                    if (checkStyle($(this).attr('data-card')) === styleOfCard) {
+                        isRepeat = true;
+                    }
+                }).promise().done(function() {
+                    if (isRepeat === false) {
+                        playerOnePushedCard = $playerOneFourthCard.attr('id');
+                        $playerOneFourthCard.hide();
+                        $playerOneFourthCard.removeAttr('class');
+                        playerOneCurrentCards.length = 0;
+                        playerOneCurrentCards.push($playerOneFourthCard.attr('data-card'));
+                        $currentCardsPlayerOne.attr('src', $playerOneFourthCard.attr('data-src'));
+                        $currentCardsPlayerOne.attr('data-card', $playerOneFourthCard.attr('data-card'));
+                        playerOne = false;
+                        playerTwo = true;
+                        checkForTwenty(1, $playerOneFourthCard);
+                        result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                    }
+                })
+            }
+        } else {
+            if (playerOne === true && (playerOneCurrentCards = []) && isLocked == false) {
+                playerOnePushedCard = $playerOneFourthCard.attr('id');
+                $playerOneFourthCard.hide();
+                $playerOneFourthCard.removeAttr('class');
+                playerOneCurrentCards.length = 0;
+                playerOneCurrentCards.push($playerOneFourthCard.attr('data-card'));
+                $currentCardsPlayerOne.attr('src', $playerOneFourthCard.attr('data-src'));
+                $currentCardsPlayerOne.attr('data-card', $playerOneFourthCard.attr('data-card'));
+                playerOne = false;
+                playerTwo = true;
+                checkForTwenty(1, $playerOneFourthCard);
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+            }
+        }
+
+    })
+    $playerOneFifthCard.click(function() {
+        if (isOtherPlayer === true && isStepTwo === true && playerOne === true && (playerOneCurrentCards = []) && isLocked == false) {
+            var cardId = $currentCardsPlayerTwo.attr('data-card');
+            var styleOfCard = checkStyle(cardId);
+            var styleOfCurrentCard = checkStyle($playerOneFifthCard.attr('data-card'));
+            if (styleOfCurrentCard === styleOfCard) {
+                playerOnePushedCard = $playerOneFifthCard.attr('id');
+                $playerOneFifthCard.hide();
+                $playerOneFifthCard.removeAttr('class');
+                playerOneCurrentCards.length = 0;
+                playerOneCurrentCards.push($playerOneFifthCard.attr('data-card'));
+                $currentCardsPlayerOne.attr('src', $playerOneFifthCard.attr('data-src'));
+                $currentCardsPlayerOne.attr('data-card', $playerOneFifthCard.attr('data-card'));
+                playerOne = false;
+                playerTwo = true;
+                checkForTwenty(1, $playerOneFifthCard);
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+            } else {
+                var isRepeat = false;
+                $('.img-player-one').each(function() {
+                    if (checkStyle($(this).attr('data-card')) === styleOfCard) {
+                        isRepeat = true;
+                    }
+                }).promise().done(function() {
+                    if (isRepeat === false) {
+                        playerOnePushedCard = $playerOneFifthCard.attr('id');
+                        $playerOneFifthCard.hide();
+                        $playerOneFifthCard.removeAttr('class');
+                        playerOneCurrentCards.length = 0;
+                        playerOneCurrentCards.push($playerOneFifthCard.attr('data-card'));
+                        $currentCardsPlayerOne.attr('src', $playerOneFifthCard.attr('data-src'));
+                        $currentCardsPlayerOne.attr('data-card', $playerOneFifthCard.attr('data-card'));
+                        playerOne = false;
+                        playerTwo = true;
+                        checkForTwenty(1, $playerOneFifthCard);
+                        result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                    }
+                })
+            }
+        } else {
+            if (playerOne === true && (playerOneCurrentCards = []) && isLocked == false) {
+                playerOnePushedCard = $playerOneFifthCard.attr('id');
+                $playerOneFifthCard.hide();
+                $playerOneFifthCard.removeAttr('class');
+                playerOneCurrentCards.length = 0;
+                playerOneCurrentCards.push($playerOneFifthCard.attr('data-card'));
+                $currentCardsPlayerOne.attr('src', $playerOneFifthCard.attr('data-src'));
+                $currentCardsPlayerOne.attr('data-card', $playerOneFifthCard.attr('data-card'));
+                playerOne = false;
+                playerTwo = true;
+                checkForTwenty(1, $playerOneFifthCard);
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+            }
+        }
+
+    })
+    $playerOneSixthCard.click(function() {
+        if (isOtherPlayer === true && isStepTwo === true && playerOne === true && (playerOneCurrentCards = []) && isLocked == false) {
+            var cardId = $currentCardsPlayerTwo.attr('data-card');
+            var styleOfCard = checkStyle(cardId);
+            var styleOfCurrentCard = checkStyle($playerOneSixthCard.attr('data-card'));
+            if (styleOfCurrentCard === styleOfCard) {
+                playerOnePushedCard = $playerOneSixthCard.attr('id');
+                $playerOneSixthCard.hide();
+                $playerOneSixthCard.removeAttr('class');
+                playerOneCurrentCards.length = 0;
+                playerOneCurrentCards.push($playerOneSixthCard.attr('data-card'));
+                $currentCardsPlayerOne.attr('src', $playerOneSixthCard.attr('data-src'));
+                $currentCardsPlayerOne.attr('data-card', $playerOneSixthCard.attr('data-card'));
+                playerOne = false;
+                playerTwo = true;
+                checkForTwenty(1, $playerOneSixthCard);
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+            } else {
+                var isRepeat = false;
+                $('.img-player-one').each(function() {
+                    if (checkStyle($(this).attr('data-card')) === styleOfCard) {
+                        isRepeat = true;
+                    }
+                }).promise().done(function() {
+                    if (isRepeat === false) {
+                        playerOnePushedCard = $playerOneSixthCard.attr('id');
+                        $playerOneSixthCard.hide();
+                        $playerOneSixthCard.removeAttr('class');
+                        playerOneCurrentCards.length = 0;
+                        playerOneCurrentCards.push($playerOneSixthCard.attr('data-card'));
+                        $currentCardsPlayerOne.attr('src', $playerOneSixthCard.attr('data-src'));
+                        $currentCardsPlayerOne.attr('data-card', $playerOneSixthCard.attr('data-card'));
+                        playerOne = false;
+                        playerTwo = true;
+                        checkForTwenty(1, $playerOneSixthCard);
+                        result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                    }
+                })
+            }
+        } else {
+            if (playerOne === true && (playerOneCurrentCards = []) && isLocked == false) {
+                playerOnePushedCard = $playerOneSixthCard.attr('id');
+                $playerOneSixthCard.hide();
+                $playerOneSixthCard.removeAttr('class');
+                playerOneCurrentCards.length = 0;
+                playerOneCurrentCards.push($playerOneSixthCard.attr('data-card'));
+                $currentCardsPlayerOne.attr('src', $playerOneSixthCard.attr('data-src'));
+                $currentCardsPlayerOne.attr('data-card', $playerOneSixthCard.attr('data-card'));
+                playerOne = false;
+                playerTwo = true;
+                checkForTwenty(1, $playerOneSixthCard);
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+            }
+        }
+
+    })
+
+    $playerTwoFirstCard.click(function() {
+        if (isOtherPlayer === true && isStepTwo === true && playerTwo === true && (playerTwoCurrentCards = []) && isLocked == false) {
+            var cardId = $currentCardsPlayerOne.attr('data-card');
+            var styleOfCard = checkStyle(cardId);
+            var styleOfCurrentCard = checkStyle($playerTwoFirstCard.attr('data-card'));
+            if (styleOfCurrentCard === styleOfCard) {
+                playerTwoPushedCard = $playerTwoFirstCard.attr('id');
+                $playerTwoFirstCard.hide();
+                $playerTwoFirstCard.removeAttr('class');
+                playerTwoCurrentCards.length = 0;
+                playerTwoCurrentCards.push($playerTwoFirstCard.attr('data-card'));
+                $currentCardsPlayerTwo.attr('src', $playerTwoFirstCard.attr('src'));
+                $currentCardsPlayerTwo.attr('data-card', $playerTwoFirstCard.attr('data-card'));
+                playerTwo = false;
+                playerOne = true;
+                checkForTwenty(2, $playerTwoFirstCard);
+                checkNineCard();
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+            } else {
+                var isRepeat = false;
+                $('.img-player-two').each(function() {
+                    if (checkStyle($(this).attr('data-card')) === styleOfCard) {
+                        isRepeat = true;
+                    }
+                }).promise().done(function() {
+                    if (isRepeat === false) {
+                        playerTwoPushedCard = $playerTwoFirstCard.attr('id');
+                        $playerTwoFirstCard.hide();
+                        $playerTwoFirstCard.removeAttr('class');
+                        playerTwoCurrentCards.length = 0;
+                        playerTwoCurrentCards.push($playerTwoFirstCard.attr('data-card'));
+                        $currentCardsPlayerTwo.attr('src', $playerTwoFirstCard.attr('src'));
+                        $currentCardsPlayerTwo.attr('data-card', $playerTwoFirstCard.attr('data-card'));
+                        playerTwo = false;
+                        playerOne = true;
+                        checkForTwenty(2, $playerTwoFirstCard);
+                        checkNineCard();
+                        result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                    }
+                })
+            }
+        } else {
+            if (playerTwo === true && (playerTwoCurrentCards = []) && isLocked == false) {
+                playerTwoPushedCard = $playerTwoFirstCard.attr('id');
+                $playerTwoFirstCard.hide();
+                $playerTwoFirstCard.removeAttr('class');
+                playerTwoCurrentCards.length = 0;
+                playerTwoCurrentCards.push($playerTwoFirstCard.attr('data-card'));
+                $currentCardsPlayerTwo.attr('src', $playerTwoFirstCard.attr('src'));
+                $currentCardsPlayerTwo.attr('data-card', $playerTwoFirstCard.attr('data-card'));
+                playerTwo = false;
+                playerOne = true;
+                checkForTwenty(2, $playerTwoFirstCard);
+                checkNineCard();
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+            }
+        }
+
+    })
+
+    $playerTwoSecondCard.click(function() {
+        if (isOtherPlayer === true && isStepTwo === true && playerTwo === true && (playerTwoCurrentCards = []) && isLocked == false) {
+            var cardId = $currentCardsPlayerOne.attr('data-card');
+            var styleOfCard = checkStyle(cardId);
+            var styleOfCurrentCard = checkStyle($playerTwoSecondCard.attr('data-card'));
+            if (styleOfCurrentCard === styleOfCard) {
+                playerTwoPushedCard = $playerTwoSecondCard.attr('id');
+                $playerTwoSecondCard.hide();
+                $playerTwoSecondCard.removeAttr('class');
+                playerTwoCurrentCards.length = 0;
+                playerTwoCurrentCards.push($playerTwoSecondCard.attr('data-card'));
+                $currentCardsPlayerTwo.attr('src', $playerTwoSecondCard.attr('src'));
+                $currentCardsPlayerTwo.attr('data-card', $playerTwoSecondCard.attr('data-card'));
+                playerTwo = false;
+                playerOne = true;
+                checkForTwenty(2, $playerTwoSecondCard);
+                checkNineCard();
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                pushPlayerOneCard($playerTwoSixthCard);
+            } else {
+                var isRepeat = false;
+                $('.img-player-two').each(function() {
+                    if (checkStyle($(this).attr('data-card')) === styleOfCard) {
+                        isRepeat = true;
+                    }
+                }).promise().done(function() {
+                    if (isRepeat === false) {
+                        playerTwoPushedCard = $playerTwoSecondCard.attr('id');
+                        $playerTwoSecondCard.hide();
+                        $playerTwoSecondCard.removeAttr('class');
+                        playerTwoCurrentCards.length = 0;
+                        playerTwoCurrentCards.push($playerTwoSecondCard.attr('data-card'));
+                        $currentCardsPlayerTwo.attr('src', $playerTwoSecondCard.attr('src'));
+                        $currentCardsPlayerTwo.attr('data-card', $playerTwoSecondCard.attr('data-card'));
+                        playerTwo = false;
+                        playerOne = true;
+                        checkForTwenty(2, $playerTwoSecondCard);
+                        checkNineCard();
+                        result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                        pushPlayerOneCard($playerTwoSixthCard);
+                    }
+                })
+            }
+        } else {
+            if (playerTwo === true && (playerTwoCurrentCards = []) && isLocked == false) {
+                playerTwoPushedCard = $playerTwoSecondCard.attr('id');
+                $playerTwoSecondCard.hide();
+                $playerTwoSecondCard.removeAttr('class');
+                playerTwoCurrentCards.length = 0;
+                playerTwoCurrentCards.push($playerTwoSecondCard.attr('data-card'));
+                $currentCardsPlayerTwo.attr('src', $playerTwoSecondCard.attr('src'));
+                $currentCardsPlayerTwo.attr('data-card', $playerTwoSecondCard.attr('data-card'));
+                playerTwo = false;
+                playerOne = true;
+                checkForTwenty(2, $playerTwoSecondCard);
+                checkNineCard();
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                pushPlayerOneCard($playerTwoSixthCard);
+            }
+        }
+
+    })
+
+    $playerTwoThirdCard.click(function() {
+        if (isOtherPlayer === true && isStepTwo === true && playerTwo === true && (playerTwoCurrentCards = []) && isLocked == false) {
+            var cardId = $currentCardsPlayerOne.attr('data-card');
+            var styleOfCard = checkStyle(cardId);
+            var styleOfCurrentCard = checkStyle($playerTwoThirdCard.attr('data-card'));
+            if (styleOfCurrentCard === styleOfCard) {
+                playerTwoPushedCard = $playerTwoThirdCard.attr('id');
+                $playerTwoThirdCard.hide();
+                $playerTwoThirdCard.removeAttr('class');
+                playerTwoCurrentCards.length = 0;
+                playerTwoCurrentCards.push($playerTwoThirdCard.attr('data-card'));
+                $currentCardsPlayerTwo.attr('src', $playerTwoThirdCard.attr('src'));
+                $currentCardsPlayerTwo.attr('data-card', $playerTwoThirdCard.attr('data-card'));
+                playerTwo = false;
+                playerOne = true;
+                checkForTwenty(2, $playerTwoThirdCard);
+                checkNineCard();
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                pushPlayerOneCard($playerTwoSixthCard);
+            } else {
+                var isRepeat = false;
+                $('.img-player-two').each(function() {
+                    if (checkStyle($(this).attr('data-card')) === styleOfCard) {
+                        isRepeat = true;
+                    }
+                }).promise().done(function() {
+                    if (isRepeat === false) {
+                        playerTwoPushedCard = $playerTwoThirdCard.attr('id');
+                        $playerTwoThirdCard.hide();
+                        $playerTwoThirdCard.removeAttr('class');
+                        playerTwoCurrentCards.length = 0;
+                        playerTwoCurrentCards.push($playerTwoThirdCard.attr('data-card'));
+                        $currentCardsPlayerTwo.attr('src', $playerTwoThirdCard.attr('src'));
+                        $currentCardsPlayerTwo.attr('data-card', $playerTwoThirdCard.attr('data-card'));
+                        playerTwo = false;
+                        playerOne = true;
+                        checkForTwenty(2, $playerTwoThirdCard);
+                        checkNineCard();
+                        result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                        pushPlayerOneCard($playerTwoSixthCard);
+                    }
+                })
+            }
+        } else {
+            if (playerTwo === true && (playerTwoCurrentCards = []) && isLocked == false) {
+                playerTwoPushedCard = $playerTwoThirdCard.attr('id');
+                $playerTwoThirdCard.hide();
+                $playerTwoThirdCard.removeAttr('class');
+                playerTwoCurrentCards.length = 0;
+                playerTwoCurrentCards.push($playerTwoThirdCard.attr('data-card'));
+                $currentCardsPlayerTwo.attr('src', $playerTwoThirdCard.attr('src'));
+                $currentCardsPlayerTwo.attr('data-card', $playerTwoThirdCard.attr('data-card'));
+                playerTwo = false;
+                playerOne = true;
+                checkForTwenty(2, $playerTwoThirdCard);
+                checkNineCard();
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                pushPlayerOneCard($playerTwoSixthCard);
+            }
+        }
+
+    })
+
+    $playerTwoFourthCard.click(function() {
+        if (isOtherPlayer === true && isStepTwo === true && playerTwo === true && (playerTwoCurrentCards = []) && isLocked == false) {
+            var cardId = $currentCardsPlayerOne.attr('data-card');
+            var styleOfCard = checkStyle(cardId);
+            var styleOfCurrentCard = checkStyle($playerTwoFourthCard.attr('data-card'));
+            if (styleOfCurrentCard === styleOfCard) {
+                if (playerTwo === true && (playerTwoCurrentCards = []) && isLocked == false) {
+                    playerTwoPushedCard = $playerTwoFourthCard.attr('id');
+                    $playerTwoFourthCard.hide();
+                    $playerTwoFourthCard.removeAttr('class');
+                    playerTwoCurrentCards.length = 0;
+                    playerTwoCurrentCards.push($playerTwoFourthCard.attr('data-card'));
+                    $currentCardsPlayerTwo.attr('src', $playerTwoFourthCard.attr('src'));
+                    $currentCardsPlayerTwo.attr('data-card', $playerTwoFourthCard.attr('data-card'));
+                    playerTwo = false;
+                    playerOne = true;
+                    checkForTwenty(2, $playerTwoFourthCard);
+                    checkNineCard();
+                    result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                    pushPlayerOneCard($playerTwoSixthCard);
+                }
+            } else {
+                var isRepeat = false;
+                $('.img-player-two').each(function() {
+                    if (checkStyle($(this).attr('data-card')) === styleOfCard) {
+                        isRepeat = true;
+                    }
+                }).promise().done(function() {
+                    if (isRepeat === false) {
+                        playerTwoPushedCard = $playerTwoFourthCard.attr('id');
+                        $playerTwoFourthCard.hide();
+                        $playerTwoFourthCard.removeAttr('class');
+                        playerTwoCurrentCards.length = 0;
+                        playerTwoCurrentCards.push($playerTwoFourthCard.attr('data-card'));
+                        $currentCardsPlayerTwo.attr('src', $playerTwoFourthCard.attr('src'));
+                        $currentCardsPlayerTwo.attr('data-card', $playerTwoFourthCard.attr('data-card'));
+                        playerTwo = false;
+                        playerOne = true;
+                        checkForTwenty(2, $playerTwoFourthCard);
+                        checkNineCard();
+                        result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                        pushPlayerOneCard($playerTwoSixthCard);
+                    }
+                })
+            }
+        } else {
+            if (playerTwo === true && (playerTwoCurrentCards = []) && isLocked == false) {
+                playerTwoPushedCard = $playerTwoFourthCard.attr('id');
+                $playerTwoFourthCard.hide();
+                $playerTwoFourthCard.removeAttr('class');
+                playerTwoCurrentCards.length = 0;
+                playerTwoCurrentCards.push($playerTwoFourthCard.attr('data-card'));
+                $currentCardsPlayerTwo.attr('src', $playerTwoFourthCard.attr('src'));
+                $currentCardsPlayerTwo.attr('data-card', $playerTwoFourthCard.attr('data-card'));
+                playerTwo = false;
+                playerOne = true;
+                checkForTwenty(2, $playerTwoFourthCard);
+                checkNineCard();
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                pushPlayerOneCard($playerTwoSixthCard);
+            }
+        }
+
+    })
+
+    $playerTwoFifthCard.click(function() {
+        if (isOtherPlayer === true && isStepTwo === true && playerTwo === true && (playerTwoCurrentCards = []) && isLocked == false) {
+            var cardId = $currentCardsPlayerOne.attr('data-card');
+            var styleOfCard = checkStyle(cardId);
+            var styleOfCurrentCard = checkStyle($playerTwoFifthCard.attr('data-card'));
+            if (styleOfCurrentCard === styleOfCard) {
+                playerTwoPushedCard = $playerTwoFifthCard.attr('id');
+                $playerTwoFifthCard.hide();
+                $playerTwoFifthCard.removeAttr('class');
+                playerTwoCurrentCards.length = 0;
+                playerTwoCurrentCards.push($playerTwoFifthCard.attr('data-card'));
+                $currentCardsPlayerTwo.attr('src', $playerTwoFifthCard.attr('src'));
+                $currentCardsPlayerTwo.attr('data-card', $playerTwoFifthCard.attr('data-card'));
+                playerTwo = false;
+                playerOne = true;
+                checkForTwenty(2, $playerTwoFifthCard);
+                checkNineCard();
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                pushPlayerOneCard($playerTwoSixthCard);
+            } else {
+                var isRepeat = false;
+                $('.img-player-two').each(function() {
+                    if (checkStyle($(this).attr('data-card')) === styleOfCard) {
+                        isRepeat = true;
+                    }
+                }).promise().done(function() {
+                    if (isRepeat === false) {
+                        playerTwoPushedCard = $playerTwoFifthCard.attr('id');
+                        $playerTwoFifthCard.hide();
+                        $playerTwoFifthCard.removeAttr('class');
+                        playerTwoCurrentCards.length = 0;
+                        playerTwoCurrentCards.push($playerTwoFifthCard.attr('data-card'));
+                        $currentCardsPlayerTwo.attr('src', $playerTwoFifthCard.attr('src'));
+                        $currentCardsPlayerTwo.attr('data-card', $playerTwoFifthCard.attr('data-card'));
+                        playerTwo = false;
+                        playerOne = true;
+                        checkForTwenty(2, $playerTwoFifthCard);
+                        checkNineCard();
+                        result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                        pushPlayerOneCard($playerTwoSixthCard);
+                    }
+                })
+
+            }
+        } else {
+            if (playerTwo === true && (playerTwoCurrentCards = []) && isLocked == false) {
+                playerTwoPushedCard = $playerTwoFifthCard.attr('id');
+                $playerTwoFifthCard.hide();
+                $playerTwoFifthCard.removeAttr('class');
+                playerTwoCurrentCards.length = 0;
+                playerTwoCurrentCards.push($playerTwoFifthCard.attr('data-card'));
+                $currentCardsPlayerTwo.attr('src', $playerTwoFifthCard.attr('src'));
+                $currentCardsPlayerTwo.attr('data-card', $playerTwoFifthCard.attr('data-card'));
+                playerTwo = false;
+                playerOne = true;
+                checkForTwenty(2, $playerTwoFifthCard);
+                checkNineCard();
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                pushPlayerOneCard($playerTwoSixthCard);
+            }
+        }
+
+    })
+
+    $playerTwoSixthCard.click(function() {
+        if (isOtherPlayer === true && isStepTwo === true && playerTwo === true && (playerTwoCurrentCards = []) && isLocked == false) {
+            var cardId = $currentCardsPlayerOne.attr('data-card');
+            var styleOfCard = checkStyle(cardId);
+            var styleOfCurrentCard = checkStyle($playerTwoSixthCard.attr('data-card'));
+            if (styleOfCurrentCard === styleOfCard) {
+                playerTwoPushedCard = $playerTwoSixthCard.attr('id');
+                $playerTwoSixthCard.hide();
+                $playerTwoSixthCard.removeAttr('class');
+                playerTwoCurrentCards.length = 0;
+                playerTwoCurrentCards.push($playerTwoSixthCard.attr('data-card'));
+                $currentCardsPlayerTwo.attr('src', $playerTwoSixthCard.attr('src'));
+                $currentCardsPlayerTwo.attr('data-card', $playerTwoSixthCard.attr('data-card'));
+                playerTwo = false;
+                playerOne = true;
+                checkForTwenty(2, $playerTwoSixthCard);
+                checkNineCard(2);
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                pushPlayerOneCard($playerTwoSixthCard);
+            } else {
+                var isRepeat = false;
+                $('.img-player-two').each(function() {
+                    if (checkStyle($(this).attr('data-card')) === styleOfCard) {
+                        isRepeat = true;
+                    }
+                }).promise().done(function() {
+                    if (isRepeat === false) {
+                        playerTwoPushedCard = $playerTwoSixthCard.attr('id');
+                        $playerTwoSixthCard.hide();
+                        $playerTwoSixthCard.removeAttr('class');
+                        playerTwoCurrentCards.length = 0;
+                        playerTwoCurrentCards.push($playerTwoSixthCard.attr('data-card'));
+                        $currentCardsPlayerTwo.attr('src', $playerTwoSixthCard.attr('src'));
+                        $currentCardsPlayerTwo.attr('data-card', $playerTwoSixthCard.attr('data-card'));
+                        playerTwo = false;
+                        playerOne = true;
+                        checkForTwenty(2, $playerTwoSixthCard);
+                        checkNineCard(2);
+                        result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                        pushPlayerOneCard($playerTwoSixthCard);
+                    }
+                })
+            }
+        } else {
+            if (playerTwo === true && (playerTwoCurrentCards = []) && isLocked == false) {
+                playerTwoPushedCard = $playerTwoSixthCard.attr('id');
+                $playerTwoSixthCard.hide();
+                $playerTwoSixthCard.removeAttr('class');
+                playerTwoCurrentCards.length = 0;
+                playerTwoCurrentCards.push($playerTwoSixthCard.attr('data-card'));
+                $currentCardsPlayerTwo.attr('src', $playerTwoSixthCard.attr('src'));
+                $currentCardsPlayerTwo.attr('data-card', $playerTwoSixthCard.attr('data-card'));
+                playerTwo = false;
+                playerOne = true;
+                checkForTwenty(2, $playerTwoSixthCard);
+                checkNineCard(2);
+                result(playerOneCurrentCards[0], playerTwoCurrentCards[0]);
+                pushPlayerOneCard($playerTwoSixthCard);
+            }
+        }
+
+    })
+
+    function checkValue(value) {
+        if (value[0] == '9') {
+            return 1;
+        } else if (value[0] == 'J') {
+            return 2;
+        } else if (value[0] == 'Q') {
+            return 3;
+        } else if (value[0] == 'K') {
+            return 4;
+        } else if (value[0] == '1') {
+            return 5;
+        } else if (value[0] == 'A') {
+            return 6;
+        }
+    }
+
+
+
+    function checkStyle(value) {
+        if (value[0] == '1') {
+            if (value[2] == 'k' && value[3] == 'a') {
+                return 1;
+            } else if (value[2] == 'p') {
+                return 2;
+            } else if (value[2] == 's') {
+                return 3;
+            } else if (value[2] == 'k' && value[3] == 'u') {
+                return 4;
+            }
+        } else {
+            if (value[1] == 'k' && value[2] == 'a') {
+                return 1;
+            } else if (value[1] == 'p') {
+                return 2;
+            } else if (value[1] == 's') {
+                return 3;
+            } else if (value[1] == 'k' && value[2] == 'u') {
+                return 4;
+            }
+        }
+    }
+
+    /* 
+        9 -> 1
+        J -> 2
+        Q -> 3
+        K -> 4
+        10 -> 5
+        A -> 6
+    */
+    /*
+        karo -> 1
+        pika -> 2
+        spatiq -> 3
+        kupa -> 4
+    */
+    // var cardsValues = [0, 0, 0, 0, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 10, 10, 10, 10, 11, 11, 11, 11];
+    function calculateResult(playerWin, card1, card2) {
+        //PlayerWin 1 -> PlayerOne
+        //PlayerWin 2 -> PlayerTwo
+
+        if (isThirteen === false) {
+            cardsWinner += 2;
+            cardsLoser += 2;
+        }
+
+        var currentCardOne = 0;
+        var currentCardTwo = 0;
+        switch (card1) {
+            case 1:
+                currentCardOne = 0
+                break;
+            case 2:
+                currentCardOne = 2
+                break;
+            case 3:
+                currentCardOne = 3
+                break;
+            case 4:
+                currentCardOne = 4
+                break;
+            case 5:
+                currentCardOne = 10
+                break;
+            case 6:
+                currentCardOne = 11
+                break;
+        }
+        switch (card2) {
+            case 1:
+                currentCardTwo = 0
+                break;
+            case 2:
+                currentCardTwo = 2
+                break;
+            case 3:
+                currentCardTwo = 3
+                break;
+            case 4:
+                currentCardTwo = 4
+                break;
+            case 5:
+                currentCardTwo = 10
+                break;
+            case 6:
+                currentCardTwo = 11
+                break;
+        }
+        if (playerWin === 1) {
+            playerOneCurrentCards.length = 0;
+            playerTwoCurrentCards.length = 0;
+            setTimeout(function() {
+                isLocked = false;
+                $currentCardsPlayerOne.removeAttr('src');
+                $currentCardsPlayerOne.removeAttr('data-src');
+                $currentCardsPlayerTwo.removeAttr('src');
+                playerOnePoints += currentCardOne;
+                playerOnePoints += currentCardTwo;
+                $playerOnePointsSpan.html(playerOnePoints);
+                if (playerOnePoints >= 66) {
+                    $('#wrapper').html(' ');
+                    $('#wrapper').append('<h1 class="win">Player 1 WIN</h1>')
+                } else if (playerTwoPoints >= 66) {
+                    $('#wrapper').html(' ');
+                    $('#wrapper').append('<h1 class="win">Player 2 WIN</h1>')
+                }
+                if (cardsLoser <= 23) {
+                    $('#' + playerOnePushedCard).attr('src', 'images/card-back.png');
+                    $('#' + playerOnePushedCard).attr('data-src', cards[currentCards[cardsWinner]]);
+                    $('#' + playerOnePushedCard).attr('data-card', cardsNums[currentCards[cardsWinner]]);
+                    $('#' + playerOnePushedCard).addClass('img-player-one');
+                    $('#' + playerOnePushedCard).show();
+                }
+                if (cardsLoser === 13) {
+                    $oneCard.hide();
+                    $oneCard.next().remove();
+                } else {
+                    $oneCard.next().remove();
+                    $oneCard.next().remove();
+                }
+                if (cardsLoser <= 23) {
+                    $('#' + playerTwoPushedCard).attr('src', cards[currentCards[cardsLoser]]);
+                    $('#' + playerTwoPushedCard).attr('data-card', cardsNums[currentCards[cardsLoser]]);
+                    $('#' + playerTwoPushedCard).addClass('img-player-two');
+                    $('#' + playerTwoPushedCard).show();
+                }
+                playerTwo = false;
+                playerOne = true;
+                isOtherPlayer = false;
+                pushPlayerOneCard();
+                checkNineCard();
+            }, TIMEOUT_SUCCESS_RESULT);
+        } else if (playerWin === 2) {
+            playerOneCurrentCards.length = 0;
+            playerTwoCurrentCards.length = 0;
+            setTimeout(function() {
+                isLocked = false;
+                $currentCardsPlayerOne.removeAttr('src');
+                $currentCardsPlayerOne.removeAttr('data-src');
+                $currentCardsPlayerTwo.removeAttr('src');
+                playerTwoPoints += currentCardOne;
+                playerTwoPoints += currentCardTwo;
+                $playerTwoPointsSpan.html(playerTwoPoints);
+                if (playerOnePoints >= 66) {
+                    $('#wrapper').html(' ');
+                    $('#wrapper').append('<h1 class="win">Player 1 WIN</h1>')
+                } else if (playerTwoPoints >= 66) {
+                    $('#wrapper').html(' ');
+                    $('#wrapper').append('<h1 class="win">Player 2 WIN</h1>')
+                }
+                if (cardsLoser <= 23) {
+                    $('#' + playerOnePushedCard).attr('src', 'images/card-back.png');
+                    $('#' + playerOnePushedCard).attr('data-src', cards[currentCards[cardsLoser]]);
+                    $('#' + playerOnePushedCard).attr('data-card', cardsNums[currentCards[cardsLoser]]);
+                    $('#' + playerOnePushedCard).addClass('img-player-one');
+                    $('#' + playerOnePushedCard).show();
+                }
+                if (cardsLoser === 13) {
+                    $oneCard.hide();
+                    $oneCard.next().remove();
+
+                } else {
+                    $oneCard.next().remove();
+                    $oneCard.next().remove();
+
+                }
+                if (cardsLoser <= 23) {
+                    $('#' + playerTwoPushedCard).attr('src', cards[currentCards[cardsWinner]]);
+                    $('#' + playerTwoPushedCard).attr('data-card', cardsNums[currentCards[cardsWinner]]);
+                    $('#' + playerTwoPushedCard).addClass('img-player-two');
+                    $('#' + playerTwoPushedCard).show();
+                }
+                playerOne = false;
+                playerTwo = true;
+                isOtherPlayer = false;
+                checkNineCard();
+            }, TIMEOUT_SUCCESS_RESULT);
+        }
+        isThirteen = false;
+    }
+
+    function result(playerOneCard, playerTwoCard) {
+        isOtherPlayer = true;
+        afterFirstRound = true;
+        checkNineCard();
+        if (playerOneCard !== undefined && playerTwoCard !== undefined) {
+            isLocked = true;
+            var v1 = checkValue(playerOneCard);
+            var v2 = checkValue(playerTwoCard);
+            var style1 = checkStyle(playerOneCard);
+            var style2 = checkStyle(playerTwoCard);
+            var kozBoq = checkStyle($trumpCard[0]);
+            // var arrPlayerOneCards = [];
+            // var arrPlayerTwoCards = [];
+            // console.log($('.img-player-one'))
+            if (cardsLoser === 21) {
+                isStepTwo = true;
+            }
+
+            if (style1 === style2) {
+                if (v1 > v2) {
+                    calculateResult(1, v1, v2);
+                } else {
+                    calculateResult(2, v1, v2);
+                }
+            } else if (style1 === kozBoq && style2 !== kozBoq) {
+                calculateResult(1, v1, v2);
+            } else if (style2 === kozBoq && style1 !== kozBoq) {
+                calculateResult(2, v1, v2);
+            } else if (style1 !== style2) {
+                if (playerOne === true) {
+                    calculateResult(1, v1, v2);
+                } else if (playerTwo === true) {
+                    calculateResult(2, v1, v2);
+                }
+            }
+
+        }
+    }
+
+    function makeUniqueRandom() {
+        if (!uniqueRandoms.length) {
+            for (var i = 0; i < numRandoms; i++) {
+                uniqueRandoms.push(i);
+            }
+        }
+        var index = Math.floor(Math.random() * uniqueRandoms.length);
+        var val = uniqueRandoms[index];
+        uniqueRandoms.splice(index, 1);
+        return val;
+    }
+
+    function generatePlayersCards(arrayPlayerOne, arrayPlayerTwo) {
+        $playerOneFirstCard.attr('data-src', cards[arrayPlayerOne[0]]);
+        $playerOneFirstCard.attr('data-card', cardsNums[arrayPlayerOne[0]]);
+
+        $playerOneSecondCard.attr('data-src', cards[arrayPlayerOne[1]]);
+        $playerOneSecondCard.attr('data-card', cardsNums[arrayPlayerOne[1]]);
+
+        $playerOneThirdCard.attr('data-src', cards[arrayPlayerOne[2]]);
+        $playerOneThirdCard.attr('data-card', cardsNums[arrayPlayerOne[2]]);
+
+        $playerOneFourthCard.attr('data-src', cards[arrayPlayerOne[3]]);
+        $playerOneFourthCard.attr('data-card', cardsNums[arrayPlayerOne[3]]);
+
+        $playerOneFifthCard.attr('data-src', cards[arrayPlayerOne[4]]);
+        $playerOneFifthCard.attr('data-card', cardsNums[arrayPlayerOne[4]]);
+
+        $playerOneSixthCard.attr('data-src', cards[arrayPlayerOne[5]]);
+        $playerOneSixthCard.attr('data-card', cardsNums[arrayPlayerOne[5]]);
+
+        $playerTwoFirstCard.attr('src', cards[arrayPlayerTwo[0]]);
+        $playerTwoFirstCard.attr('data-card', cardsNums[arrayPlayerTwo[0]]);
+
+        $playerTwoSecondCard.attr('src', cards[arrayPlayerTwo[1]]);
+        $playerTwoSecondCard.attr('data-card', cardsNums[arrayPlayerTwo[1]]);
+
+        $playerTwoThirdCard.attr('src', cards[arrayPlayerTwo[2]]);
+        $playerTwoThirdCard.attr('data-card', cardsNums[arrayPlayerTwo[2]]);
+
+        $playerTwoFourthCard.attr('src', cards[arrayPlayerTwo[3]]);
+        $playerTwoFourthCard.attr('data-card', cardsNums[arrayPlayerTwo[3]]);
+
+        $playerTwoFifthCard.attr('src', cards[arrayPlayerTwo[4]]);
+        $playerTwoFifthCard.attr('data-card', cardsNums[arrayPlayerTwo[4]]);
+
+        $playerTwoSixthCard.attr('src', cards[arrayPlayerTwo[5]]);
+        $playerTwoSixthCard.attr('data-card', cardsNums[arrayPlayerTwo[5]]);
+    }
+
+    function generateCenterCards(cards) {
+        console.log(cards);
+        $oneCard.attr('data-card', cardsNums[cards[0]]);
+        $twoCard.attr('data-card', cardsNums[cards[1]]);
+        $threeCard.attr('data-card', cardsNums[cards[2]]);
+        $fourCard.attr('data-card', cardsNums[cards[3]]);
+        $fiveCard.attr('data-card', cardsNums[cards[4]]);
+        $sixCard.attr('data-card', cardsNums[cards[5]]);
+        $sevenCard.attr('data-card', cardsNums[cards[6]]);
+        $eightCard.attr('data-card', cardsNums[cards[7]]);
+        $nineCard.attr('data-card', cardsNums[cards[8]]);
+        $tenCard.attr('data-card', cardsNums[cards[9]]);
+        $elevenCard.attr('data-card', cardsNums[cards[10]]);
+    }
+
+    function generateTrump(card) {
+        $trump.attr('src', cards[card]);
+        $trump.attr('data-card', cardsNums[card]);
+        $trumpCard.push(cardsNums[card]);
+    }
+
+    function startGame() {
+        // if (window.localStorage.getItem('start') === 'true') {
+        //     alert('Game already started :)');
+        //     $('body').html(' ');
+        // } else {
+        window.localStorage.setItem('start', 'true');
+
+
+        for (var i = 0; i < 24; i++) {
+            currentCards.push(makeUniqueRandom());
+        }
+        generatePlayersCards(currentCards.slice(0, 6), currentCards.slice(6, 12));
+        generateCenterCards(currentCards.slice(12, 23));
+        generateTrump(currentCards[23]);
+        console.log(currentCards);
+        // }
+    }
+    startGame();
+    </script>
+</body>
+
+</html>
